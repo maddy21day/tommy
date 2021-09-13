@@ -5,7 +5,7 @@
         <a :href="output.data.url">
           <img
             :src="output.data.image_url"
-            alt=""
+            alt="Image not found"
             @mouseover="hover(index)"
             @mouseleave="revert(index)"
             class="prime"
@@ -80,37 +80,136 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style  scoped>
 * {
   margin: 0;
-  margin-top: 2rem;
   padding: 0;
-  box-sizing: border-box;
-  list-style: none;
+}
+#img1 {
+  height: 60px;
+}
+
+hr {
+  width: 1450px;
+  margin-left: 2.5%;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+#btn {
+  float: left;
+  border-radius: 50%;
+  margin: 2px 4px;
+  border: 1px solid rgb(19, 19, 49);
+  height: 25px;
+  width: 25px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
 }
 .card-container {
-  width: 98%;
-  /* border: 2px solid red; */
+  /* width: 1450px; */
+
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 5rem;
-  margin: 0 auto;
 }
-.card {
+.cards {
+  margin-left: 6.5%;
   display: flex;
-  width: 400px;
-  height: 400px;
-  border: 2px solid black;
-
+  flex-wrap: wrap;
+  margin-top: 100px;
+  width: 200px;
+  padding: 0px 12px;
+}
+p {
+font-family: Basetica,Basetica-regular,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #00424a;
+    padding-right: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 .prime {
-  // height: auto;
-  width: 350px;
+  background: white;
+  height: 350px;
+  width: 300px;
 }
-#btn {
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-  margin: 0px 4px;
+#span {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  width: 220px;
+  /* height: 32px; */
+  line-height: 13px;
+  color: rgb(19, 19, 49);
+  font-size: 13px;
+  font-weight: 300;
+  float: left;
+}
+::-webkit-scrollbar-thumb {
+  background: white;
+  color: white;
+}
+
+/* 3 cards */
+@media only screen and (max-width: 768px) {
+  .card-container {
+    width: 1037px;
+
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cards {
+    /* margin-left: 6.5%; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    width: 254px;
+    padding: 0px 12px;
+  }
+  .prime {
+    background: white;
+    height: 350px;
+    width: 300px;
+  }
+}
+/* 2 cards */
+@media only screen and (max-width: 600px) {
+  .card-container {
+    /* width: 834px; */
+
+    margin: auto 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cards {
+    /* margin-left: 6.5%; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    width: 254px;
+    padding: 0px 12px;
+  }
+  .prime {
+    background: white;
+    height: 350px;
+    width: 300px;
+  }
+}
+
+/* 4 card */
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (max-width: 600px) {
+}
+@media only screen and (min-width: 1200px) {
 }
 </style>

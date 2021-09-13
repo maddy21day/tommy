@@ -163,6 +163,7 @@ export default {
   list-style: none;
 }
 .mobile-nav {
+  background: white;
   width: 95%;
   top: 0px;
   position: fixed;
@@ -170,6 +171,7 @@ export default {
   // display: none;
 }
 .nav-content {
+  background: white;
   text-align: left;
   width: 100%;
   height: 100vh;
