@@ -103,7 +103,7 @@ export default {
   right: 0;
   background: white;
   top: 0;
-  width: 90%;
+  width: 85%;
   position: fixed;
   margin: auto;
   display: flex;
@@ -111,7 +111,7 @@ export default {
 }
 .navoption {
   // border: 2px solid red;
-  margin-left: 2rem;
+  margin-left: .5rem;
   display: flex;
   li {
     display: flex;
@@ -194,7 +194,7 @@ export default {
   }
 }
 .icon-section {
-  width: 13%;
+  width: 8%;
   display: flex;
   justify-content: space-between;
   // border: 2px solid red;
@@ -203,9 +203,9 @@ export default {
   margin-right: 1rem;
 }
 .mobile-branding {
-  width: 46%;
+  width: 36%;
   display: flex;
-  margin-left: 15%;
+  margin-left: 28%;
 }
 .mob-img {
   display: flex;
