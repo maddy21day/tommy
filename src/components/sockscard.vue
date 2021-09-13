@@ -186,6 +186,7 @@ p {
     margin-top: 100px;
     width: 254px;
     padding: 0px 12px;
+    margin-left: 2.5rem;
   }
   .prime {
     background: white;
