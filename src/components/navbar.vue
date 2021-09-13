@@ -111,6 +111,7 @@ export default {
 }
 .navoption {
   // border: 2px solid red;
+  margin-left: 2rem;
   display: flex;
   li {
     display: flex;
@@ -120,7 +121,7 @@ export default {
     font-size: 1.2rem;
     text-decoration: none;
     padding: 2px 12px;
-    color: rgb(19, 19, 68);
+    color: rgb(15, 15, 15);
     &:hover {
       color: rgb(19, 19, 68);
       text-decoration: underline;
