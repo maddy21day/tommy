@@ -190,8 +190,8 @@ p {
   }
   .prime {
     background: white;
-    height: 350px;
-    width: 300px;
+    height: 282px;
+    width: 232px;
   }
 }
 /* 2 cards */
