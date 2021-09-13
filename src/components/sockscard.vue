@@ -10,7 +10,7 @@
             @mouseleave="revert(index)"
             class="prime"
         /></a>
-        <div class="span">
+        <div id="span">
           <img
             id="btn"
             v-for="(outcome, index1) in data1[index].variations"
@@ -63,7 +63,7 @@ export default {
     },
     hover(index) {
       this.secondaryimg = this.data1[index].data.secondary_image_url;
-      if (this.data1[index].data.secondary_image_url ) {
+      if (this.data1[index].data.secondary_image_url) {
         $(".prime")[index].setAttribute("src", this.secondaryimg);
       }
     },
@@ -97,6 +97,7 @@ hr {
 }
 
 #btn {
+  
   float: left;
   border-radius: 50%;
   margin: 2px 4px;
@@ -104,15 +105,11 @@ hr {
   height: 25px;
   width: 25px;
 }
-body {
-  margin: 0;
-  padding: 0;
-}
 a {
   text-decoration: none;
 }
 .card-container {
-  /* width: 1450px; */
+  width: 100%;
 
   margin: auto;
   display: flex;
@@ -127,25 +124,41 @@ a {
   padding: 0px 12px;
 }
 p {
-font-family: Basetica,Basetica-regular,sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    color: #00424a;
-    padding-right: 20px;
-    margin-bottom: 0;
-    margin-top: 0;
+  font-family: Basetica, Basetica-regular, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #00424a;
+  padding-right: 20px;
+  margin-bottom: 0;
+  margin-top: 0;
+  width: 80%;
 }
 .prime {
   background: white;
   height: 350px;
   width: 300px;
 }
+.prime alt {
+  background: white;
+  height: 350px;
+  width: 300px;
+}
 #span {
   display: flex;
+  /* flex-wrap: wrap; */
   overflow-y: hidden;
   overflow-x: auto;
-  width: 220px;
+  width: 300px;
   /* height: 32px; */
+  line-height: 13px;
+  color: rgb(19, 19, 49);
+  font-size: 13px;
+  font-weight: 300;
+  float: left;
+}
+.span {
+  display: flex;
+  width: 300px;
   line-height: 13px;
   color: rgb(19, 19, 49);
   font-size: 13px;
