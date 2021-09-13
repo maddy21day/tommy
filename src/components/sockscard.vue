@@ -84,10 +84,11 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-#img1 {
+/* #img1 {
   height: 60px;
-}
+} */
 
 hr {
   width: 1450px;
@@ -109,19 +110,19 @@ a {
   text-decoration: none;
 }
 .card-container {
-  width: 100%;
+  width: 95%;
 
   margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
 .cards {
-  margin-left: 6.5%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  width: 200px;
-  padding: 0px 12px;
+    margin-left: 4.5%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    width: 266px;
+    padding: 0px 12px;
 }
 p {
   font-family: Basetica, Basetica-regular, sans-serif;
@@ -173,25 +174,35 @@ p {
 /* 3 cards */
 @media only screen and (max-width: 900px) {
   .card-container {
-    width: 1037px;
+    width: 1002px;
 
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+  }
+  p{
+    font-size: 17px;
+  }
+  #btn{
+    height: 30px;
+    width: 30px;
+  }
+  .span{
+    font-size: 16px;
   }
   .cards {
     /* margin-left: 6.5%; */
     display: flex;
     flex-wrap: wrap;
     margin-top: 100px;
-    width: 310px;
+    width: 334px;
     padding: 0px 12px;
-    margin-left: 0.5rem;
+    margin-left: 0;
   }
   .prime {
     background: white;
-    height: 300px;
-    width: 270px;
+    height: 340px;
+    width: 300px;
   }
 }
 /* 2 cards */
