@@ -1,20 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <navbar />
+  <!-- <mobilenav /> -->
+  <sockscard />
+  <!-- <solo /> -->
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import solo from './components/solo.vue'
+// import mobilenav from './components/mobilenav.vue'
+import navbar from './components/navbar.vue'
+import sockscard from './components/sockscard.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    navbar,
+    // mobilenav
+    // solo
+    sockscard
+
   }
 }
 </script>
-
-<style lang="scss">
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
