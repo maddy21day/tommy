@@ -171,7 +171,7 @@ p {
 }
 
 /* 3 cards */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   .card-container {
     width: 1037px;
 
@@ -184,14 +184,14 @@ p {
     display: flex;
     flex-wrap: wrap;
     margin-top: 100px;
-    width: 254px;
+    width: 310px;
     padding: 0px 12px;
-    margin-left: 2.5rem;
+    margin-left: 0.5rem;
   }
   .prime {
     background: white;
-    height: 282px;
-    width: 232px;
+    height: 300px;
+    width: 270px;
   }
 }
 /* 2 cards */
