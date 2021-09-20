@@ -1,15 +1,20 @@
 <template>
   <div>
-      <!-- <img id="im" src="@/assets/mha.jpg" alt=""> -->
+    <!-- <img id="im" src="@/assets/mha.jpg" alt=""> -->
     <div class="main-menu">
-      <div class="navoption" >
-        <li v-for="data in data1.navigationType" :key="data.id">
-          <a :href="'https://tommyjohn.com'+data.collectionUrl">
-            {{data.collectionTitle}}
-            </a></li>
-        <!-- <li><a href="#">Womens</a></li>
-        <li><a href="#">Find Your Fit</a></li>
-        <li><a href="#">Explore Apollo</a></li> -->
+      <div class="navoption">
+        <li v-for="(data) in this.data1.navigationType" :key="data.id">
+          <a :href="'https://tommyjohn.com' + data.collectionUrl">
+            {{ data.navigationType.collectionTitle }}
+          </a>
+        </li>
+      
+     <div class="hover-container">
+      <hr />
+     <!-- <div class="hover-option">
+      </div>-->
+        <li></li>
+    </div> 
       </div>
       <div class="branding-logo">
         <img
@@ -50,24 +55,25 @@
           <img class="cross" src="@/assets/cross.svg" alt="" @click="close()" />
         </li>
       </div>
-      <span class="mob-nav"
-       v-for="data in data1.navigationType" :key="data.id">
-        <li><a :href="'https://tommyjohn.com'+data.collectionUrl">
-        {{data.collectionTitle}}
-        </a></li>
+      <span class="mob-nav" v-for="data in this.data1.navigationType" :key="data.id">
+        <li>
+          <a :href="'https://tommyjohn.com' + data.collectionUrl">
+            {{ data.collectionTitle }}
+          </a>
+        </li>
       </span>
     </div>
   </div>
 </template>
 
 <script>
-var myjson = require('C:/Users/madha/Downloads/navbar/src/api/db.json')
+var myjson = require("C:/Users/madha/Downloads/navbar/src/api/db.json");
 export default {
   name: "navbar",
-  data(){
-    return{
-      data1:myjson[0],
-    }
+  data() {
+    return {
+      data1: [],
+    };
   },
   methods: {
     open() {
@@ -78,10 +84,15 @@ export default {
       document.getElementsByClassName("mobile-nav")[0].style.display = "flex";
       document.getElementsByClassName("nav-content")[0].style.display = "none";
     },
+
   },
-    mounted(){
-      console.log(myjson[0].navigationType);
-    }
+  mounted() {
+    this.data1=myjson[0];
+    // this.$store.dispatch('navdata',this.data1)
+    // this.outputdata=this.$store.getters.publishdata;
+    console.log(this.data1);
+    // console.log(this.outputdata);
+  },
 };
 </script>
 
@@ -92,10 +103,10 @@ export default {
   box-sizing: border-box;
   list-style: none;
 }
-.mobile-nav{
-    display: none;
+.mobile-nav {
+  display: none;
 }
-.nav-content{
+.nav-content {
   display: none;
 }
 .main-menu {
@@ -111,7 +122,7 @@ export default {
 }
 .navoption {
   // border: 2px solid red;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   display: flex;
   li {
     display: flex;
@@ -125,8 +136,31 @@ export default {
     &:hover {
       color: rgb(19, 19, 68);
       text-decoration: underline;
+      
     }
   }
+}
+.hover-container {
+  // position: fixed;
+  // display: flex;
+  border: 2px solid red;
+  height: 30rem;
+  margin-top: 5rem;
+  width: 99vw;
+  align-content: start;
+  hr {
+    height: 0.1rem;
+    margin-left: 0;
+    background: grey;
+    width: 100%;
+  }
+  li{
+    width: 25%;
+    border: 2px solid black;
+    height: inherit;
+    // top: inherit;
+    // position: inherit;
+    }
 }
 .branding-logo {
   // border: 2px solid red;
@@ -154,81 +188,83 @@ export default {
     height: 2rem;
   }
 }
-@media only screen and (max-width: 1151px){
-    .main-menu{
-        display: none;
-    }
-    * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.mobile-nav {
-  background: white;
-  width: 95%;
-  top: 0px;
-  position: fixed;
-  display: flex;
-  // display: none;
-}
-.nav-content {
-  background: white;
-  text-align: left;
-  width: 100%;
-  height: 100vh;
-  display: none;
-  flex-wrap: wrap;
-  // justify-content: space-evenly;
-  // border: 2px solid red;
-  // height: min-content;
-  // list-style: none;
-  // margin: 0rem 1rem;
-  // margin-top: 1rem;
-  a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.5rem;
-    &:hover {
-      text-decoration: underline;
+@media only screen and (max-width: 1151px) {
+  .main-menu {
+    display: none;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .mobile-nav {
+    background: white;
+    width: 95%;
+    top: 0px;
+    height: 3.5rem;
+    position: fixed;
+    display: flex;
+    // display: none;
+  }
+  .nav-content {
+    background: white;
+    text-align: left;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    flex-wrap: wrap;
+    // justify-content: space-evenly;
+    // border: 2px solid red;
+    // height: min-content;
+    // list-style: none;
+    // margin: 0rem 1rem;
+    // margin-top: 1rem;
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 1.5rem;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
-}
-.icon-section {
-  width: 8%;
-  display: flex;
-  justify-content: space-between;
-  // border: 2px solid red;
-}
-#img1 {
-  margin-right: 1rem;
-}
-.mobile-branding {
-  width: 36%;
-  display: flex;
-  margin-left: 28%;
-}
-.mob-img {
-  display: flex;
-  width: 100%;
-  align-content: center;
-  align-items: center;
-  height: 3rem;
-}
-.mob-img li {
-  width: 45%;
-}
-.cross {
-  float: right;
-  height: 40px;
-}
-.mob-nav {
-  display: flex;
-  // border: 2px solid red;
-  width: 100%;
-  justify-content: space-evenly;
-  line-height: 5px;
-  height: 3rem;
-  margin-top: 0px;
-}
+  .icon-section {
+    width: 4%;
+    display: flex;
+    justify-content: space-between;
+    // border: 2px solid red;
+  }
+  #img1 {
+    margin-right: 1rem;
+    width: 1rem;
+  }
+  .mobile-branding {
+    width: 40%;
+    display: flex;
+    margin-left: 28%;
+  }
+  .mob-img {
+    display: flex;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    height: 3rem;
+  }
+  .mob-img li {
+    width: 45%;
+  }
+  .cross {
+    float: right;
+    height: 40px;
+  }
+  .mob-nav {
+    display: flex;
+    // border: 2px solid red;
+    width: 100%;
+    justify-content: space-evenly;
+    line-height: 5px;
+    height: 3rem;
+    margin-top: 0px;
+  }
 }
 </style>

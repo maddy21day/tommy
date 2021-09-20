@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="main-card">
     <div class="card-container">
-      <div class="cards" v-for="(output, index) in data1" :key="output.id">
+      <div class="cards" v-for="(output, index) in this.data1" :key="output.id">
         <a :href="output.data.url">
           <img
             :src="output.data.image_url"
-            alt="Image not found"
+            alt=@/assets/not-found.svg
             @mouseover="hover(index)"
             @mouseleave="revert(index)"
             class="prime"
@@ -20,7 +20,7 @@
             ]
               .replaceAll(/\/?\s+/g, '-')
               .toLowerCase()}.jpg`"
-            alt=""
+            alt="@/assets/not-found.svg"
             @mouseover="swatch(index, index1)"
             @mouseleave="revert(index)"
           />
@@ -45,22 +45,41 @@ export default {
   data() {
     return {
       secondaryimg: null,
-      index1: 0,
-      data1: null,
+      // data1: null,
     };
   },
-  beforeMount() {
-    this.getName();
+    mounted(){
+    this.$store.dispatch("setdata");
+    console.log(this.data1)
   },
+  // beforeMount() {
+  //   this.getName();
+  // },
+  computed:{
+    data1(){
+      return this.$store.getters.publishdata;
+    }
+  },
+  //   mounted(){
+  //   this.$store.dispatch("setdata");
+  // },
+
   methods: {
-    async getName() {
-      const res = await fetch(
-        "https://ac.cnstrc.com/browse/collection_id/mens-socks?c=ciojs-client-2.11.4&key=key_zMKm7Za5Dcr0HlmM&i=1b0a007a-8538-4e30-ae6a-7b2576539696&s=150&page=1&num_results_per_page=20&sort_by=relevance&sort_order=descending&_dt=1630218577941"
-      );
-      const datacome = await res.json();
-      this.data1 = datacome.response.results;
-      // console.log(this.data1[this.index].variations.data.image_url)
+    getdata(){
+      console.log(this.data1);
     },
+    
+    // use vuex to populate data in state and fetch through 
+
+
+    // async getName() {
+      //   const res = await fetch(
+    //     "https://ac.cnstrc.com/browse/collection_id/mens-socks?c=ciojs-client-2.11.4&key=key_zMKm7Za5Dcr0HlmM&i=1b0a007a-8538-4e30-ae6a-7b2576539696&s=150&page=1&num_results_per_page=20&sort_by=relevance&sort_order=descending&_dt=1630218577941"
+    //   );
+    //   const datacome = await res.json();
+    //   this.data1 = datacome.response.results;
+    //   // console.log(this.data1[this.index].variations.data.image_url)
+    // },
     hover(index) {
       this.secondaryimg = this.data1[index].data.secondary_image_url;
       if (this.data1[index].data.secondary_image_url) {
@@ -93,13 +112,13 @@ export default {
 hr {
   width: 1450px;
   margin-left: 2.5%;
-  margin-top: 50px;
-  margin-bottom: 25px;
+  /* margin-top: 50px; */
+  /* margin-bottom: 25px; */
 }
 
 #btn {
   
-  float: left;
+  /* float: left; */
   border-radius: 50%;
   margin: 2px 4px;
   border: 1px solid rgb(19, 19, 49);
@@ -111,8 +130,8 @@ a {
 }
 .card-container {
   width: 95%;
-
   margin: auto;
+  margin-top: -80px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -132,7 +151,7 @@ p {
   padding-right: 20px;
   margin-bottom: 0;
   margin-top: 0;
-  width: 80%;
+  width: 188px;
 }
 .prime {
   background: white;
@@ -176,7 +195,7 @@ p {
   .card-container {
     width: 1002px;
 
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
   }
@@ -194,7 +213,7 @@ p {
     /* margin-left: 6.5%; */
     display: flex;
     flex-wrap: wrap;
-    margin-top: 100px;
+    margin-top: 26px;
     width: 334px;
     padding: 0px 12px;
     margin-left: 0;
@@ -208,24 +227,41 @@ p {
 /* 2 cards */
 @media only screen and (max-width: 600px) {
   .card-container {
-    /* width: 834px; */
-
-    margin: auto 0;
+    margin: auto;
+    width: 760px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  a{
+    width: 200px;
+  }
+  p{
+    font-size: 17px;
+    
+  }
+  #btn{
+    height: 30px;
+    width: 30px;
+  }
+  .span{
+    font-size: 16px;
   }
   .cards {
-    /* margin-left: 6.5%; */
     display: flex;
     flex-wrap: wrap;
     margin-top: 100px;
-    width: 254px;
-    padding: 0px 12px;
+    width: 364px;
+    padding: 0px 14px;
+    /* margin-left: 4%; */
   }
   .prime {
     background: white;
-    height: 350px;
-    width: 300px;
+    height: 460px;
+    width: 378px;
+  }
+  .main-card{
+    width: 100vw;
   }
 }
 
