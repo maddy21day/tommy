@@ -66,22 +66,22 @@
     </div>
     <div class="mob-low-container">
         <div class="shop">
-            Lorem ipsum dolor sit  
+            <h3>Shop</h3>
         </div>
         <div class="account">
-            Lorem ipsum dolor sit  
+            <h3>Account</h3>
 
         </div>
         <div class="support">
-            Lorem ipsum dolor sit  
+            <h3>Support</h3> 
 
         </div>
         <div class="promotion">
-            Lorem ipsum dolor sit  
+            <h3>Promotions</h3>  
 
         </div>
         <div class="company">
-            Lorem ipsum dolor sit  
+            Company  
 
         </div>
     </div>

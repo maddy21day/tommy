@@ -30,7 +30,6 @@
         >
         <div class="span">${{ output.data.Price }}.00</div>
       </div>
-      <!-- <hr /> -->
     </div>
   </div>
 </template>
@@ -43,40 +42,22 @@ export default {
   data() {
     return {
       secondaryimg: null,
-      // data1: null,
     };
   },
   mounted() {
     this.$store.dispatch("setdata");
     console.log(this.data1);
   },
-  // beforeMount() {
-  //   this.getName();
-  // },
   computed: {
     data1() {
       return this.$store.getters.publishdata;
     },
   },
-  //   mounted(){
-  //   this.$store.dispatch("setdata");
-  // },
 
   methods: {
     getdata() {
       console.log(this.data1);
     },
-
-    // use vuex to populate data in state and fetch through
-
-    // async getName() {
-    //   const res = await fetch(
-    //     "https://ac.cnstrc.com/browse/collection_id/mens-socks?c=ciojs-client-2.11.4&key=key_zMKm7Za5Dcr0HlmM&i=1b0a007a-8538-4e30-ae6a-7b2576539696&s=150&page=1&num_results_per_page=20&sort_by=relevance&sort_order=descending&_dt=1630218577941"
-    //   );
-    //   const datacome = await res.json();
-    //   this.data1 = datacome.response.results;
-    //   // console.log(this.data1[this.index].variations.data.image_url)
-    // },
     hover(index) {
       this.secondaryimg = this.data1[index].data.secondary_image_url;
       if (this.data1[index].data.secondary_image_url) {
@@ -86,9 +67,6 @@ export default {
     revert(index) {
       $(".prime")[index].setAttribute("src", this.data1[index].data.image_url);
     },
-    // revert1(index) {
-    //   $(".prime")[index].setAttribute("src", this.data1[index].data.image_url);
-    // },
     swatch(index, index1) {
       $(".prime")[index].setAttribute(
         "src",
@@ -111,18 +89,11 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-/* #img1 {
-  height: 60px;
-} */
 hr {
   width: 1450px;
   margin-left: 2.5%;
-  /* margin-top: 50px; */
-  /* margin-bottom: 25px; */
 }
 #btn {
-  
-  /* float: left; */
   border-radius: 50%;
   margin: 2px 4px;
   border: 1px solid rgb(19, 19, 49);
