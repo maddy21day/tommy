@@ -81,7 +81,7 @@
 
         </div>
         <div class="company">
-            Company  
+            <h3>Company</h3>  
 
         </div>
     </div>
@@ -101,6 +101,9 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+}
+.mob-low-container{
+    display: none;
 }
 .low-container{
     position: relative;
@@ -202,6 +205,10 @@ hr[data-v-9ec73118] {
     }
     .low-container[data-v-9ec73118]{
         display: none;
+    }
+    .mob-low-container{
+        display: flex;
+        flex-direction: column;
     }
 }
 </style>
