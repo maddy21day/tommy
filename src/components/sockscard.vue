@@ -3,13 +3,10 @@
     <div class="card-container">
       <div class="cards" v-for="(output, index) in this.data1" :key="output.id">
         <a :href="output.data.url">
-          <img
-            :src="output.data.image_url"
-            alt=@/assets/not-found.svg
-            @mouseover="hover(index)"
-            @mouseleave="revert(index)"
-            class="prime"
-        /></a>
+          <img :src="output.data.image_url" alt=@/assets/not-found.svg
+          @mouseover="hover(index)" @mouseleave="revert(index)" class="prime"
+          /></a
+        >
         <div id="span">
           <img
             id="btn"
@@ -21,8 +18,9 @@
               .replaceAll(/\/?\s+/g, '-')
               .toLowerCase()}.jpg`"
             alt="@/assets/not-found.svg"
-            @mouseover="swatch(index, index1)"
-            @mouseleave="revert(index)"
+            @mouseenter="swatch(index, index1)"
+            @click="swatchclick(index, index1)"
+            @mouseout="revert1(index)"
           />
         </div>
         <a :href="output.data.url">
@@ -32,7 +30,7 @@
         >
         <div class="span">${{ output.data.Price }}.00</div>
       </div>
-      <hr />
+      <!-- <hr /> -->
     </div>
   </div>
 </template>
@@ -48,32 +46,31 @@ export default {
       // data1: null,
     };
   },
-    mounted(){
+  mounted() {
     this.$store.dispatch("setdata");
-    console.log(this.data1)
+    console.log(this.data1);
   },
   // beforeMount() {
   //   this.getName();
   // },
-  computed:{
-    data1(){
+  computed: {
+    data1() {
       return this.$store.getters.publishdata;
-    }
+    },
   },
   //   mounted(){
   //   this.$store.dispatch("setdata");
   // },
 
   methods: {
-    getdata(){
+    getdata() {
       console.log(this.data1);
     },
-    
-    // use vuex to populate data in state and fetch through 
 
+    // use vuex to populate data in state and fetch through
 
     // async getName() {
-      //   const res = await fetch(
+    //   const res = await fetch(
     //     "https://ac.cnstrc.com/browse/collection_id/mens-socks?c=ciojs-client-2.11.4&key=key_zMKm7Za5Dcr0HlmM&i=1b0a007a-8538-4e30-ae6a-7b2576539696&s=150&page=1&num_results_per_page=20&sort_by=relevance&sort_order=descending&_dt=1630218577941"
     //   );
     //   const datacome = await res.json();
@@ -89,7 +86,16 @@ export default {
     revert(index) {
       $(".prime")[index].setAttribute("src", this.data1[index].data.image_url);
     },
+    // revert1(index) {
+    //   $(".prime")[index].setAttribute("src", this.data1[index].data.image_url);
+    // },
     swatch(index, index1) {
+      $(".prime")[index].setAttribute(
+        "src",
+        this.data1[index].variations[index1].data.image_url
+      );
+    },
+    swatchclick(index, index1) {
       $(".prime")[index].setAttribute(
         "src",
         this.data1[index].variations[index1].data.image_url
@@ -108,14 +114,12 @@ export default {
 /* #img1 {
   height: 60px;
 } */
-
 hr {
   width: 1450px;
   margin-left: 2.5%;
   /* margin-top: 50px; */
   /* margin-bottom: 25px; */
 }
-
 #btn {
   
   /* float: left; */
@@ -189,12 +193,10 @@ p {
   background: white;
   color: white;
 }
-
 /* 3 cards */
 @media only screen and (max-width: 900px) {
   .card-container {
     width: 1002px;
-
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -264,11 +266,9 @@ p {
     width: 100vw;
   }
 }
-
 /* 4 card */
 @media only screen and (min-width: 992px) {
 }
-
 @media only screen and (max-width: 600px) {
 }
 @media only screen and (min-width: 1200px) {

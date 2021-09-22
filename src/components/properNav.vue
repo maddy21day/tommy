@@ -144,13 +144,14 @@ export default {
   display: none;
 }
 .main-nav {
+  z-index: 1000;
   left: 0;
   right: 0;
   background: white;
   top: 0;
   width: 100%;
   position: fixed;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -182,6 +183,13 @@ export default {
 .right {
   display: flex;
   width: fit-content;
+  input{
+  border: none;
+  border-bottom: 2px solid black;
+}
+::placeholder{
+  font-size: 15px;
+}
   // border: 2px solid blue;
 }
 
@@ -276,14 +284,14 @@ hr {
     }
   }
   .icon-section {
-    width: 4%;
+    width: 9%;
     display: flex;
     justify-content: space-between;
     // border: 2px solid red;
   }
   #img1 {
     margin-right: 1rem;
-    width: 1rem;
+    width: 2.5rem;
   }
   .mobile-branding {
     width: 40%;

@@ -1,33 +1,24 @@
 <template>
-  <!-- <navbar /> -->
-  <!-- <mobilenav /> -->
   <proper-nav />
+  <mid />
   <sockscard />
-  <!-- <solo /> -->
-  <!-- <mainnav /> -->
+  <low />
 </template>
 
 <script>
-// import solo from './components/solo.vue'
-// import mobilenav from './components/mobilenav.vue'
-// import navbar from './components/navbar.vue'
 import ProperNav from './components/properNav.vue'
+import mid from './components/mid.vue'
 import sockscard from './components/sockscard.vue'
-// import mainnav from './components/mainnav.vue'
+import low from './components/low.vue'
 
 export default {
   name: 'App',
   components: {
-    // navbar,
     ProperNav,
-    // mobilenav
-    // solo
-    sockscard
-    // mainnav
-  },
-  // beforemounted(){
-  //   this.$store.dispatch("setdata");
-  // }
+    mid,
+    sockscard,
+    low
+    },
 }
 </script>
 <style scoped>
@@ -38,5 +29,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+    overflow: hidden;
 }
 </style>
